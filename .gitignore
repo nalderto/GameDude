@@ -23,7 +23,6 @@ tags
 .DS_Store
 .directory
 *.debug
-Makefile*
 *.prl
 *.app
 moc_*.cpp
@@ -59,6 +58,9 @@ Thumbs.db
 *.vcxproj
 *vcxproj.*
 
+# Visual Studio Code Folder
+.vscode
+
 # MinGW generated files
 *.Debug
 *.Release
@@ -71,3 +73,5 @@ Thumbs.db
 *.dll
 *.exe
 
+# Executable
+gamedude
