@@ -9,4 +9,4 @@ CXXFLAGS = -g -Wall
 CXX_SDL = -lSDL2
 
 gamedude: main.cpp cpu.cpp cpu.hpp
-	$(CXX) $(CXXFLAGS) $(CXX_SDL) $? -o gamedude
+	$(CXX) $? $(CXXFLAGS) $(CXX_SDL) -o gamedude
