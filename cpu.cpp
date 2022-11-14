@@ -1,6 +1,6 @@
 #include "cpu.hpp"
 
-void CPU::cycle() {
+void Cpu::cycle() {
     uint8_t opcode = readMem(pc);
 
     switch (opcode) {
@@ -117,7 +117,7 @@ void CPU::cycle() {
 }
 
 
-bool CPU::loadGame(std::string fileName) {
+bool Cpu::loadGame(std::string fileName) {
     FILE *fp;
     try {
         fp = fopen(fileName.c_str(), "rb");
@@ -138,7 +138,7 @@ bool CPU::loadGame(std::string fileName) {
     }
 }
 
-uint8_t CPU::readMem(uint16_t address) {
+uint8_t Cpu::readMem(uint16_t address) {
     if (0x0000 <= address && address < 0x8000) {
         return cartRom[address];
     } else if (0x8000 <= address && address < 0xA000) {
@@ -158,7 +158,7 @@ uint8_t CPU::readMem(uint16_t address) {
     }
 }
 
-bool CPU::writeMem(uint16_t address, uint8_t value) {
+bool Cpu::writeMem(uint16_t address, uint8_t value) {
     if (0x8000 <= address && address < 0xA000) {
         vram[address - 0x8000] = value;
     }

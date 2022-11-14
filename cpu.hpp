@@ -9,7 +9,7 @@
 #define CRAM_SIZE 0x7F
 #define CART_ROM_SIZE 16384
 
-class CPU {
+class Cpu {
 
     private:
         uint8_t wram[WRAM_SIZE]; // Working RAM

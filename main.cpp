@@ -1,6 +1,16 @@
 #include <iostream>
 #include <SDL2/SDL.h> 
 
+void closeWindow(SDL_Renderer* renderer, SDL_Window* window) {
+    // Destroy the renderer created above
+    SDL_DestroyRenderer(renderer);
+
+    // Destroy the window created above
+    SDL_DestroyWindow(window);
+
+    // Close all the systems of SDL initialized at the top
+    SDL_Quit();
+}
 
 int main(int argc, char** args) {
     // Initialize all the systems of SDL
@@ -27,20 +37,21 @@ int main(int argc, char** args) {
     SDL_RenderClear(renderer);
 
     // Update the renderer which will show the renderer cleared by the draw color which is green
-    SDL_RenderPresent(renderer);
+    SDL_RenderPresent(renderer);\
 
-    // Pause for 3 seconds (or 3000 milliseconds)
-    SDL_Delay(3000);
-    
-    // Destroy the renderer created above
-    SDL_DestroyRenderer(renderer);
+    bool close = false;
+    while (!close) {
+        SDL_Event event;
+        while (SDL_PollEvent(&event)) {
+            switch (event.type) {
+                case SDL_QUIT:
+                    close = true;
+                    break;
+            }
+        }
+    }
 
-    // Destroy the window created above
-    SDL_DestroyWindow(window);
-
-    // Close all the systems of SDL initialized at the top
-    SDL_Quit();
+    closeWindow(renderer, window);
 
     return 0;
-
 }
