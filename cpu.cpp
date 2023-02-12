@@ -47,7 +47,7 @@ void Cpu::cycle() {
             break;
         }
         
-        // LD (HL),n
+        // LD (HL), n
         case 0x36:
         {
             pc++;
